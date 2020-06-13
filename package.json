@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack -p",
+    "dev": "webpack-dev-server --mode=development"
   },
   "keywords": [],
   "author": "",
@@ -13,7 +14,7 @@
     "css-loader": "^3.6.0",
     "html-webpack-plugin": "^4.3.0",
     "style-loader": "^1.2.1",
-    "webpack": "^4.43.0",
+    "webpack": "^4.25.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0"
   }
