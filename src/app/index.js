@@ -1,10 +1,13 @@
 const { Weather } = require('./Weather.js');
 const { UI } = require('./UI');
+const { Store } = require('./Store');
 require('./index.css');
 
 
+const storage = new Store();
+const {city, countryCode}= storage.getLocationData();
 const ui = new UI();
-const weather = new Weather('Santiago', 'cl');
+const weather = new Weather(city, countryCode);
 
 
 async function fetchWeather() {
@@ -17,8 +20,9 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
     const city = document.getElementById('city').value;
     const countryCode = document.getElementById('countryCode').value
     weather.changeLocation(city, countryCode);
+    storage.setLocationData(city, countryCode);
     fetchWeather();
-    e.preventDefault();
+    
   
   });
 
